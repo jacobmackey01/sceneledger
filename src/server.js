@@ -6,13 +6,16 @@ import { researchRequestSchema } from "./schema.js";
 import { createGeminiService } from "./gemini.js";
 import { createParallelService } from "./parallel.js";
 import { runResearchWorkflow } from "./workflow.js";
+import { createRequestGuard } from "./guard.js";
 
 const config = loadConfig();
 const app = express();
 const directory = path.dirname(fileURLToPath(import.meta.url));
 const publicDirectory = path.resolve(directory, "../public");
+const researchGuard = createRequestGuard();
 
 app.disable("x-powered-by");
+app.set("trust proxy", 1);
 app.use(express.json({ limit: "32kb" }));
 app.use(express.static(publicDirectory, { extensions: ["html"] }));
 
@@ -41,6 +44,17 @@ app.post("/api/research", async (request, response) => {
     });
   }
 
+  const admission = researchGuard.tryEnter(request.ip || "unknown");
+  if (!admission.ok) {
+    response.set("Retry-After", String(admission.retryAfterSeconds));
+    return response.status(admission.status).json({
+      error: admission.status === 429 ? "Research limit reached." : "The research desk is busy.",
+      detail: admission.status === 429
+        ? "This public demo allows three research runs per visitor every 15 minutes."
+        : "Two research runs are already active. Please retry shortly.",
+    });
+  }
+
   try {
     const result = await runResearchWorkflow({
       request: parsed.data,
@@ -54,6 +68,8 @@ app.post("/api/research", async (request, response) => {
       error: "The research run did not complete.",
       detail: error instanceof Error ? error.message : "Unknown service error",
     });
+  } finally {
+    admission.release();
   }
 });
 

@@ -62,6 +62,8 @@ Recommended safeguards:
 
 - maximum instance count: 1
 - minimum instance count: 0
+- at most two concurrent research runs per instance
+- three research runs per visitor per 15-minute window
 - request concurrency appropriate for the Parallel quota
 - a Google Cloud budget and a Vertex AI spend cap
 - delete or disable the deployed service after judging
