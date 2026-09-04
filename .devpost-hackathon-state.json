@@ -1,0 +1,40 @@
+{
+  "plugin": "devpost-hackathon",
+  "version": 2,
+  "hackathon": {
+    "slug": "agentic-cinema",
+    "name": "Agentic Cinema: The Blockbuster Hackathon",
+    "url": "https://agentic-cinema.devpost.com",
+    "selected": true,
+    "source": "known"
+  },
+  "participant": {
+    "name": "",
+    "display_name": ""
+  },
+  "project": {
+    "name": "SceneLedger",
+    "summary": "A source-first production research agent that uses Gemini 3.8 Flash to plan and synthesize, Parallel Search to retrieve live evidence, and deterministic citation checks to preserve uncertainty.",
+    "ai_usage": "Gemini 3.8 Flash on Google Cloud Agent Platform plans factual questions and synthesizes the evidence ledger. Parallel Search provides the only external evidence supplied to the model.",
+    "codex_usage": "Codex designed and implemented the application, tests, documentation and deployment configuration. Codex is not part of the submitted runtime."
+  },
+  "current_stage": "resources",
+  "completed_stages": [
+    "start-hackathon",
+    "review",
+    "resources"
+  ],
+  "rules_acknowledged": true,
+  "learning": {
+    "status": "not-started",
+    "current_step": "",
+    "completed_steps": [],
+    "plan_file": "",
+    "checklist_file": ""
+  },
+  "submission": {
+    "draft_file": "devpost-submission.md",
+    "status": "not-started"
+  },
+  "next_command": "prepare-submission"
+}

@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="SceneLedger turns a production brief into a source-linked evidence ledger using Gemini and Parallel Search." />
+    <title>SceneLedger — source-first production research</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,500;6..72,600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/styles.css" />
+    <script type="module" src="/app.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#workspace">Skip to workspace</a>
+    <header class="topbar">
+      <a class="brand" href="/" aria-label="SceneLedger home">
+        <span class="brand-mark" aria-hidden="true">SL</span>
+        <span>SceneLedger</span>
+      </a>
+      <div class="runtime" aria-label="Runtime configuration">
+        <span class="pulse" aria-hidden="true"></span>
+        <span id="runtime-label">Checking runtime</span>
+      </div>
+    </header>
+
+    <main id="workspace">
+      <section class="hero" aria-labelledby="page-title">
+        <p class="eyebrow">A source-first research desk for screen production</p>
+        <h1 id="page-title">Know what the scene can honestly say.</h1>
+        <p class="intro">Turn a documentary, scripted or editorial brief into an auditable claim ledger. Gemini plans and synthesizes; Parallel retrieves the live evidence; deterministic checks keep every citation on the page.</p>
+        <div class="method" aria-label="Four-stage workflow">
+          <span><b>01</b> Plan</span><i aria-hidden="true"></i>
+          <span><b>02</b> Search</span><i aria-hidden="true"></i>
+          <span><b>03</b> Synthesize</span><i aria-hidden="true"></i>
+          <span><b>04</b> Audit</span>
+        </div>
+      </section>
+
+      <section class="workspace-grid">
+        <form id="research-form" class="brief-panel" novalidate>
+          <div class="panel-heading">
+            <div>
+              <p class="kicker">New production file</p>
+              <h2>Research brief</h2>
+            </div>
+            <button class="text-button" id="load-example" type="button">Load example</button>
+          </div>
+
+          <label>
+            Production title
+            <input name="title" maxlength="100" required placeholder="e.g. The Last Independent Cinema" />
+          </label>
+
+          <div class="field-row">
+            <label>
+              Format
+              <select name="productionType" required>
+                <option value="documentary">Documentary</option>
+                <option value="scripted">Scripted</option>
+                <option value="branded">Branded content</option>
+                <option value="newsroom">Newsroom</option>
+              </select>
+            </label>
+            <label>
+              Information cutoff
+              <input name="cutoffDate" type="date" />
+            </label>
+          </div>
+
+          <label>
+            Intended audience
+            <input name="audience" maxlength="160" value="General audience" required />
+          </label>
+
+          <label>
+            What must the production establish?
+            <textarea name="brief" minlength="40" maxlength="5000" required placeholder="State the story premise, the factual claims it depends on, and any uncertainty the team needs resolved."></textarea>
+            <span class="field-note"><span id="brief-count">0</span>/5,000 characters</span>
+          </label>
+
+          <div id="form-error" class="form-error" role="alert" hidden></div>
+          <button class="primary-button" type="submit">
+            <span>Build evidence ledger</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+          </button>
+          <p class="privacy-note">Your brief is sent to Google Cloud and Parallel Search to complete this run.</p>
+        </form>
+
+        <section class="result-panel" aria-live="polite" aria-busy="false">
+          <div id="empty-state" class="empty-state">
+            <div class="empty-glyph" aria-hidden="true"><span></span><span></span><span></span></div>
+            <p class="kicker">Evidence desk</p>
+            <h2>Waiting for a brief</h2>
+            <p>The ledger separates supported claims from unresolved ones and preserves the source trail a producer can inspect.</p>
+          </div>
+
+          <div id="loading-state" class="loading-state" hidden>
+            <p class="kicker">Research in progress</p>
+            <h2 id="loading-title">Planning questions</h2>
+            <ol class="progress-list">
+              <li class="active">Planning factual dependencies</li>
+              <li>Searching with Parallel</li>
+              <li>Synthesizing with Gemini</li>
+              <li>Auditing every citation</li>
+            </ol>
+          </div>
+
+          <article id="result" hidden>
+            <header class="result-header">
+              <div>
+                <p class="kicker">Completed evidence ledger</p>
+                <h2 id="result-headline"></h2>
+              </div>
+              <div id="audit-badge" class="audit-badge"></div>
+            </header>
+            <p id="result-summary" class="result-summary"></p>
+
+            <section aria-labelledby="claims-heading">
+              <div class="section-heading">
+                <h3 id="claims-heading">Claim ledger</h3>
+                <span id="claim-count"></span>
+              </div>
+              <div id="claims" class="claims"></div>
+            </section>
+
+            <div class="result-columns">
+              <section aria-labelledby="risks-heading">
+                <h3 id="risks-heading">Production risks</h3>
+                <ul id="risks"></ul>
+              </section>
+              <section aria-labelledby="questions-heading">
+                <h3 id="questions-heading">Open questions</h3>
+                <ul id="questions"></ul>
+              </section>
+            </div>
+
+            <section aria-labelledby="sources-heading">
+              <div class="section-heading">
+                <h3 id="sources-heading">Source roll</h3>
+                <span id="source-count"></span>
+              </div>
+              <ol id="sources" class="sources"></ol>
+            </section>
+
+            <footer id="run-metadata" class="run-metadata"></footer>
+          </article>
+        </section>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>Gemini 3.8 Flash × Parallel Search</span>
+      <span>Evidence is a production input—not a substitute for editorial or legal review.</span>
+    </footer>
+  </body>
+</html>
