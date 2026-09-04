@@ -4,6 +4,8 @@ SceneLedger is a source-first research desk for documentary, scripted and editor
 
 Built for the **Parallel track** of Google Cloud's Agentic Cinema hackathon.
 
+**Live application:** https://sceneledger-1021005568486.europe-west1.run.app
+
 ## Product loop
 
 1. Gemini 3.8 Flash converts the production brief into concrete research questions.
