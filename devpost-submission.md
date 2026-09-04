@@ -94,7 +94,9 @@ https://github.com/jacobmackey01/sceneledger
 
 ## Demo Video
 
-TODO: Add the public YouTube or Vimeo URL after recording the three-minute walkthrough in `docs/DEMO_SCRIPT.md`.
+The verified 40-second English visual walkthrough is saved locally at `outputs/sceneledger-demo.mp4`.
+
+TODO: Upload it publicly to YouTube or Vimeo and add the URL here.
 
 ## Screenshot Shot List
 
@@ -110,8 +112,10 @@ TODO: Add the public YouTube or Vimeo URL after recording the three-minute walkt
 - Google Cloud runtime: verified with Gemini 3.8 Flash
 - Parallel runtime: verified with live Search API calls
 - Browser QA: completed locally and against Cloud Run with no page or console errors
+- Devpost draft project: https://devpost.com/software/sceneledger-4asryb
+- Devpost thumbnail: uploaded and processing
 - Billing safeguards: £10 monthly alert budget and £15 monthly Vertex AI spend cap
-- Remaining material asset: public three-minute demo video
+- Remaining material asset: upload the finished 40-second demo video to YouTube or Vimeo
 
 ## Known Limitations
 
