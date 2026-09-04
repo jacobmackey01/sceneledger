@@ -112,6 +112,8 @@ TODO: Upload it publicly to YouTube or Vimeo and add the URL here.
 - Google Cloud runtime: verified with Gemini 3.8 Flash
 - Parallel runtime: verified with live Search API calls
 - Browser QA: completed locally and against Cloud Run with no page or console errors
+- Public-demo protection: three runs per visitor per 15 minutes, two concurrent runs per instance, one maximum Cloud Run instance
+- GitHub CI: passing on the released commit
 - Devpost draft project: https://devpost.com/software/sceneledger-4asryb
 - Devpost thumbnail: uploaded and processing
 - Billing safeguards: £10 monthly alert budget and £15 monthly Vertex AI spend cap
@@ -123,6 +125,7 @@ TODO: Upload it publicly to YouTube or Vimeo and add the URL here.
 - The citation audit validates provenance and structural support, not the ultimate truth of every source.
 - Sources without a machine-readable publication date are retained and labeled as undated.
 - A complete live run can take several minutes because multiple searches execute before synthesis.
+- The public demo intentionally rate-limits repeated research runs to protect the sponsor credits and the project owner’s billing account.
 - SceneLedger does not replace primary-document checks, editorial judgment, source consent or legal review.
 
 ## TODO Official Form Fields
