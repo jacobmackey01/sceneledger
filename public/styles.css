@@ -135,6 +135,8 @@ textarea { min-height: 190px; line-height: 1.55; resize: vertical; }
 .progress-list li { counter-increment: progress; padding: .9rem 0; color: var(--muted); border-bottom: 1px solid var(--line); font: 500 .76rem "DM Mono", monospace; text-transform: uppercase; letter-spacing: .06em; }
 .progress-list li::before { content: "0" counter(progress); display: inline-block; width: 2.5rem; color: var(--muted); }
 .progress-list li.active { color: var(--blue); }
+.progress-list li.complete { color: var(--green); }
+.progress-list li.complete::before { content: "✓"; color: var(--green); }
 
 .result-header { padding-bottom: 1.5rem; border-bottom: 1px solid var(--line); }
 .audit-badge { flex: 0 0 auto; padding: .45rem .7rem; color: var(--green); border: 1px solid currentColor; font: 500 .67rem "DM Mono", monospace; text-transform: uppercase; }
@@ -154,7 +156,8 @@ textarea { min-height: 190px; line-height: 1.55; resize: vertical; }
 .claim-use { margin: .65rem 0 0; color: var(--muted); font-size: .78rem; line-height: 1.5; }
 .claim-evidence { padding: .85rem 1rem .9rem 116px; background: var(--paper); border-top: 1px solid var(--line); }
 .claim-evidence p { margin: .35rem 0; color: #50534b; font-size: .75rem; line-height: 1.55; }
-.claim-evidence b { color: var(--blue); font-family: "DM Mono", monospace; font-weight: 500; }
+.claim-evidence a { color: var(--blue); font-family: "DM Mono", monospace; font-weight: 500; }
+.source:target { outline: 2px solid var(--blue); outline-offset: 4px; }
 
 .result-columns { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; padding: 2.2rem 0; border-bottom: 1px solid var(--line); }
 .result-columns ul { margin: 1rem 0 0; padding-left: 1.1rem; }

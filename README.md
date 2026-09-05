@@ -11,7 +11,7 @@ Built for the **Parallel track** of Google Cloud's Agentic Cinema hackathon.
 1. Gemini 3.8 Flash converts the production brief into concrete research questions.
 2. The Parallel Search API retrieves current, traceable web evidence for each question.
 3. Gemini synthesizes an evidence-bounded claim ledger for the production team.
-4. Deterministic application code rejects unknown source IDs and downgrades unsupported claims.
+4. Deterministic application code rejects unknown source IDs and quotations absent from the retrieved excerpts. Affected claims become unverified, their production advice is replaced, and narrative conclusions are withheld for review.
 
 This division is intentional: the model performs planning and synthesis, Parallel performs retrieval, and ordinary code enforces the citation boundary.
 
@@ -33,18 +33,19 @@ Requirements:
 - Google Application Default Credentials
 - A Parallel API key
 
-```bash
-npm install
+```powershell
+npm ci
 copy .env.example .env
 ```
 
-Set `GOOGLE_CLOUD_PROJECT` and `PARALLEL_API_KEY`, authenticate Google ADC, then run:
+On macOS/Linux, use `cp .env.example .env`. Set `GOOGLE_CLOUD_PROJECT` and `PARALLEL_API_KEY` in `.env`. The application loads this file automatically without overriding existing environment variables. Authenticate Google Application Default Credentials (a normal `gcloud auth login` alone is not sufficient), then start:
 
 ```bash
+gcloud auth application-default login
 npm start
 ```
 
-Open `http://localhost:8080`. The `/api/health` endpoint reports configuration readiness without exposing secrets.
+Open `http://localhost:8080`. The `/api/health` endpoint checks configuration presence without exposing secrets; it does not test provider connectivity. Progress is streamed from actual server stage transitions, not estimated timers.
 
 ## Test
 
@@ -52,7 +53,7 @@ Open `http://localhost:8080`. The `/api/health` endpoint reports configuration r
 npm test
 ```
 
-The tests exercise URL deduplication, information-cutoff enforcement, invented-citation removal, claim downgrading and the full orchestration contract with deterministic service doubles.
+The tests cover quotation fidelity, citation rejection, narrative withdrawal, source filtering, local environment loading, stage ordering, streamed responses, provider failures and HTTP rate limits using deterministic service doubles. They make no paid provider calls. See [evaluation](docs/EVALUATION.md) for the verification boundary.
 
 ## Deploy to Cloud Run
 
@@ -65,12 +66,16 @@ Recommended safeguards:
 - at most two concurrent research runs per instance
 - three research runs per visitor per 15-minute window
 - request concurrency appropriate for the Parallel quota
-- a Google Cloud budget and a Vertex AI spend cap
+- billing alerts and service-specific quotas or spending controls where available
 - delete or disable the deployed service after judging
+
+These controls do not establish a fixed total bill. Visitor limits are in-memory and reset on restart; multiple visitors can still create paid requests. Budget alerts are notifications, not a shutdown mechanism. Parallel billing and other Google Cloud services must be considered separately.
 
 ## Evidence boundary
 
 SceneLedger is a production-research aid. It does not replace editorial judgment, legal review, source consent or primary-document verification. Search excerpts are leads and supporting evidence, not automatic permission to publish a claim.
+
+The citation check matches source IDs and contiguous quoted text, ignoring whitespace differences only. A match does not prove that a quote supports the model's interpretation or that the source is accurate. Claim statuses remain model assessments. The cutoff filters publication metadata, not archived page versions; undated sources are retained and labelled.
 
 ## Licence
 

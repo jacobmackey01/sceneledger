@@ -35,33 +35,57 @@ export function normalizeSources(groups, cutoffDate) {
 }
 
 export function enforceEvidence(synthesis, sources) {
-  const allowed = new Set(sources.map((source) => source.id));
+  const byId = new Map(sources.map((source) => [source.id, source]));
+  // Only whitespace is normalized: numbers, case, punctuation and negation must survive.
+  const normalize = (text) => text.replace(/\s+/gu, " ").trim();
   let removedCitations = 0;
+  let unknownSources = 0;
+  let unmatchedExcerpts = 0;
   let downgradedClaims = 0;
 
   const claims = synthesis.claims.map((claim) => {
     const evidence = claim.evidence.filter((item) => {
-      const valid = allowed.has(item.sourceId);
+      const source = byId.get(item.sourceId);
+      const quote = normalize(item.excerpt);
+      const valid = Boolean(source && quote && source.excerpts?.some(
+        (excerpt) => normalize(excerpt).includes(quote),
+      ));
+      if (!source) unknownSources += 1;
+      else if (!valid) unmatchedExcerpts += 1;
       if (!valid) removedCitations += 1;
       return valid;
     });
 
-    if (claim.status === "supported" && evidence.length === 0) {
-      downgradedClaims += 1;
-      return { ...claim, status: "unverified", confidence: "low", evidence };
+    const needsReview = evidence.length !== claim.evidence.length || evidence.length === 0;
+    if (needsReview || claim.status === "unverified") {
+      if (claim.status !== "unverified") downgradedClaims += 1;
+      return {
+        ...claim, status: "unverified", confidence: "low", evidence,
+        productionUse: "Do not present this claim as established fact. Check the original sources and obtain adequate evidence before using it in narration or a script.",
+      };
     }
     return { ...claim, evidence };
   });
 
+  const passed = removedCitations === 0 && downgradedClaims === 0;
   return {
     ...synthesis,
+    ...(!passed ? {
+      headline: "Evidence ledger requires editorial review",
+      summary: `The citation check removed ${removedCitations} citation(s) and downgraded ${downgradedClaims} claim(s). The generated summary and production risks have been withheld because their supporting evidence changed. Review the labelled claims and original sources before publication.`,
+      risks: ["The original synthesis relied on missing or mismatched evidence. Its narrative conclusions must not be treated as verified."],
+      openQuestions: ["Can the unverified claims be established from the original sources or additional primary evidence?"],
+    } : {}),
     claims,
     audit: {
       sourceCount: sources.length,
       claimCount: claims.length,
       removedCitations,
+      unknownSources,
+      unmatchedExcerpts,
       downgradedClaims,
-      passed: removedCitations === 0 && downgradedClaims === 0,
+      passed,
+      scope: "Source IDs and quoted text checked against retrieved excerpts. This does not verify claim meaning, source accuracy or publication clearance.",
     },
   };
 }

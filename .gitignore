@@ -7,3 +7,4 @@ work/
 outputs/
 .DS_Store
 npm-debug.log*
+.ppt-work/

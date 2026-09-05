@@ -1,3 +1,5 @@
+import { readResearchStream } from "./research-stream.js";
+
 const form = document.querySelector("#research-form");
 const brief = form.elements.brief;
 const count = document.querySelector("#brief-count");
@@ -29,6 +31,20 @@ function setView(view) {
   loadingState.hidden = view !== "loading";
   result.hidden = view !== "result";
   panel.setAttribute("aria-busy", view === "loading" ? "true" : "false");
+}
+
+function renderProgress({ stage }) {
+  const stages = ["plan", "parallel-search", "synthesize", "citation-audit", "complete"];
+  const labels = ["Planning questions", "Searching with Parallel", "Synthesizing with Gemini", "Checking source IDs and quotes", "Research complete"];
+  const index = stages.indexOf(stage);
+  if (index < 0) return;
+  document.querySelector("#loading-title").textContent = labels[index];
+  document.querySelectorAll(".progress-list li").forEach((item, itemIndex) => {
+    item.classList.toggle("active", itemIndex === index);
+    item.classList.toggle("complete", itemIndex < index);
+    if (itemIndex === index) item.setAttribute("aria-current", "step");
+    else item.removeAttribute("aria-current");
+  });
 }
 
 function appendList(target, items, fallback) {
@@ -72,7 +88,8 @@ function renderClaim(claim) {
     evidence.className = "claim-evidence";
     for (const item of claim.evidence) {
       const row = document.createElement("p");
-      const label = document.createElement("b");
+      const label = document.createElement("a");
+      label.href = `#source-${item.sourceId}`;
       label.textContent = `${item.sourceId.toUpperCase()} `;
       row.append(label, document.createTextNode(`“${item.excerpt}”`));
       evidence.append(row);
@@ -89,8 +106,9 @@ function renderRun(data) {
   document.querySelector("#source-count").textContent = `${data.sources.length} retrieved`;
 
   const badge = document.querySelector("#audit-badge");
-  badge.textContent = data.audit.passed ? "Citation audit passed" : "Audit intervention";
+  badge.textContent = data.audit.passed ? "Source IDs & quotes matched" : "Citation check: review needed";
   badge.classList.toggle("fail", !data.audit.passed);
+  document.querySelector("#audit-scope").textContent = data.audit.scope;
 
   const claims = document.querySelector("#claims");
   claims.replaceChildren(...data.claims.map(renderClaim));
@@ -102,6 +120,7 @@ function renderRun(data) {
   for (const source of data.sources) {
     const li = document.createElement("li");
     li.className = "source";
+    li.id = `source-${source.id}`;
     const link = document.createElement("a");
     link.href = safeUrl(source.url);
     link.target = "_blank";
@@ -131,15 +150,23 @@ form.addEventListener("submit", async (event) => {
   if (!payload.cutoffDate) delete payload.cutoffDate;
   submitButton.disabled = true;
   setView("loading");
+  document.querySelector("#loading-title").textContent = "Connecting to research desk";
+  document.querySelectorAll(".progress-list li").forEach((item) => {
+    item.classList.remove("active", "complete");
+    item.removeAttribute("aria-current");
+  });
 
   try {
     const response = await fetch("/api/research", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: { "Content-Type": "application/json", "Accept": "application/x-ndjson" },
       body: JSON.stringify(payload),
     });
-    const data = await response.json();
-    if (!response.ok) throw new Error(data.detail || data.error || "Research run failed");
+    if (!response.ok) {
+      const data = await response.json();
+      throw new Error(data.detail || data.error || "Research run failed");
+    }
+    const data = await readResearchStream(response.body, renderProgress);
     renderRun(data);
   } catch (error) {
     errorBox.textContent = error.message;
@@ -157,7 +184,7 @@ async function checkRuntime() {
     const response = await fetch("/api/health");
     const data = await response.json();
     runtime.classList.add(data.status === "ready" ? "ready" : "error");
-    label.textContent = data.status === "ready" ? `${data.model} ready` : "Configuration required";
+    label.textContent = data.status === "ready" ? `${data.model} configured` : "Configuration required";
   } catch {
     runtime.classList.add("error");
     label.textContent = "Runtime unavailable";

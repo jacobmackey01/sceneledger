@@ -8,11 +8,15 @@ import { createParallelService } from "./parallel.js";
 import { runResearchWorkflow } from "./workflow.js";
 import { createRequestGuard } from "./guard.js";
 
-const config = loadConfig();
+export function createApp({
+  config = loadConfig(),
+  geminiFactory = createGeminiService,
+  parallelFactory = createParallelService,
+  researchGuard = createRequestGuard(),
+} = {}) {
 const app = express();
 const directory = path.dirname(fileURLToPath(import.meta.url));
 const publicDirectory = path.resolve(directory, "../public");
-const researchGuard = createRequestGuard();
 
 app.disable("x-powered-by");
 app.set("trust proxy", 1);
@@ -55,26 +59,48 @@ app.post("/api/research", async (request, response) => {
     });
   }
 
+  const streaming = request.get("Accept") === "application/x-ndjson";
+  const send = (event) => {
+    if (!response.destroyed) response.write(`${JSON.stringify(event)}\n`);
+  };
+  if (streaming) {
+    response.set({ "Content-Type": "application/x-ndjson", "Cache-Control": "no-store", "X-Accel-Buffering": "no" });
+    response.flushHeaders();
+  }
   try {
     const result = await runResearchWorkflow({
       request: parsed.data,
-      gemini: createGeminiService(config),
-      parallel: createParallelService(config),
+      gemini: geminiFactory(config),
+      parallel: parallelFactory(config),
+      onProgress: streaming ? (event) => send({ type: "progress", ...event }) : undefined,
     });
+    if (streaming) {
+      send({ type: "result", data: result });
+      return response.end();
+    }
     return response.json(result);
   } catch (error) {
-    console.error("research_workflow_failed", error);
-    return response.status(502).json({
+    console.error("research_workflow_failed", error instanceof Error ? error.name : "ServiceError");
+    const failure = {
       error: "The research run did not complete.",
-      detail: error instanceof Error ? error.message : "Unknown service error",
-    });
+      detail: "A research provider failed or returned unusable evidence. Please retry later. No ledger was generated.",
+    };
+    if (streaming) {
+      send({ type: "error", ...failure });
+      return response.end();
+    }
+    return response.status(502).json(failure);
   } finally {
     admission.release();
   }
 });
 
 app.get("*splat", (_request, response) => response.sendFile(path.join(publicDirectory, "index.html")));
+return app;
+}
 
+const config = loadConfig();
+const app = createApp({ config });
 if (process.env.NODE_ENV !== "test") {
   app.listen(config.PORT, "0.0.0.0", () => {
     console.log(`SceneLedger listening on http://localhost:${config.PORT}`);

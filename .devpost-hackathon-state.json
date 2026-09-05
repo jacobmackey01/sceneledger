@@ -18,7 +18,7 @@
     "ai_usage": "Gemini 3.8 Flash on Google Cloud Agent Platform plans factual questions and synthesizes the evidence ledger. Parallel Search provides the only external evidence supplied to the model.",
     "codex_usage": "Codex designed and implemented the application, tests, documentation and deployment configuration. Codex is not part of the submitted runtime."
   },
-  "current_stage": "submit-project",
+  "current_stage": "prepare-submission",
   "completed_stages": [
     "start-hackathon",
     "review",
@@ -35,7 +35,7 @@
   },
   "submission": {
     "draft_file": "devpost-submission.md",
-    "status": "needs-work"
+    "status": "drafting"
   },
   "next_command": "prepare-submission"
 }
