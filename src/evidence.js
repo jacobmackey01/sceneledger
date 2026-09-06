@@ -44,6 +44,7 @@ export function enforceEvidence(synthesis, sources) {
   let downgradedClaims = 0;
 
   const claims = synthesis.claims.map((claim) => {
+    const citationIssues = [];
     const evidence = claim.evidence.filter((item) => {
       const source = byId.get(item.sourceId);
       const quote = normalize(item.excerpt);
@@ -53,6 +54,7 @@ export function enforceEvidence(synthesis, sources) {
       if (!source) unknownSources += 1;
       else if (!valid) unmatchedExcerpts += 1;
       if (!valid) removedCitations += 1;
+      if (!valid) citationIssues.push({ sourceId: item.sourceId, reason: !source ? "Unknown source ID" : "Quote is not a contiguous match in the retrieved excerpts" });
       return valid;
     });
 
@@ -60,11 +62,17 @@ export function enforceEvidence(synthesis, sources) {
     if (needsReview || claim.status === "unverified") {
       if (claim.status !== "unverified") downgradedClaims += 1;
       return {
-        ...claim, status: "unverified", confidence: "low", evidence,
+        ...claim, status: "unverified", confidence: "low", evidence, citationIssues,
+        suggestedWording: null,
+        rationale: needsReview ? "Insufficient matched evidence. The model's original explanation and proposed wording have been withheld for review." : claim.rationale,
         productionUse: "Do not present this claim as established fact. Check the original sources and obtain adequate evidence before using it in narration or a script.",
       };
     }
-    return { ...claim, evidence };
+    return { ...claim, evidence, citationIssues,
+      productionUse: claim.status === "contested"
+        ? "Do not narrate this as a settled fact. Review the disagreement and original sources with an editor; any proposed wording still requires approval."
+        : "Consider this claim for the edit only after checking the original sources and the model's interpretation. Matched quotations do not provide publication clearance.",
+    };
   });
 
   const passed = removedCitations === 0 && downgradedClaims === 0;

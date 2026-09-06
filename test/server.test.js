@@ -40,6 +40,16 @@ test("HTTP validates configuration, input and rate limits", async () => {
   });
 });
 
+test("HTTP accepts maximum-length multilingual script input and rejects excessive lines", async () => {
+  await withApp({}, async (url) => {
+    const valid = { ...request, mode: "script", brief: "界".repeat(5000), script: "界".repeat(6000), followUp: false };
+    assert.equal((await post(url, valid)).status, 200);
+    const invalid = await post(url, { ...valid, script: Array(21).fill("A line.").join("\n") });
+    assert.equal(invalid.status, 400);
+    assert.match((await invalid.json()).fields.script[0], /1–20/);
+  });
+});
+
 test("HTTP failures release slots, expose no provider secrets and produce no ledger", async () => {
   await withApp({
     geminiFactory: () => ({ async plan() { throw new Error("SECRET_PROVIDER_DETAIL"); } }),

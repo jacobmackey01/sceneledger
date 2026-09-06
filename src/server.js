@@ -20,7 +20,7 @@ const publicDirectory = path.resolve(directory, "../public");
 
 app.disable("x-powered-by");
 app.set("trust proxy", 1);
-app.use(express.json({ limit: "32kb" }));
+app.use(express.json({ limit: "64kb" }));
 app.use(express.static(publicDirectory, { extensions: ["html"] }));
 
 app.get("/api/health", (_request, response) => {

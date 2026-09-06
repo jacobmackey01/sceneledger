@@ -148,6 +148,19 @@ textarea { min-height: 190px; line-height: 1.55; resize: vertical; }
 
 .claims { display: grid; gap: .75rem; }
 .claim { border: 1px solid var(--line); background: #fffdf8; }
+.script-line { border-top: 3px solid var(--ink); padding-top: 1rem; margin-bottom: 1.5rem; min-width: 0; }
+.script-line h4 { margin: 0 0 .7rem; font: 500 .8rem "DM Mono", monospace; text-transform: uppercase; }
+.original-line { margin: 0 0 1rem; padding: 1rem; background: var(--paper-deep); font: 500 1.35rem/1.5 "Newsreader", serif; white-space: pre-wrap; overflow-wrap: anywhere; }
+.review-note { font-size: .78rem; line-height: 1.6; color: var(--muted); }
+.proposed-wording { margin: 1rem 0 0; padding: .8rem; border-left: 3px solid var(--blue); font-size: .85rem; line-height: 1.6; }
+.citation-warning { margin: .7rem 0 0; color: #8c3025; font-size: .75rem; line-height: 1.5; }
+.claim, .source, .run-metadata { overflow-wrap: anywhere; }
+.result-header { flex-wrap: wrap; }
+.export-actions { display: flex; flex-wrap: wrap; gap: .8rem 1.2rem; margin-top: 1rem; font-size: .78rem; }
+.checkbox-label { display: flex; align-items: flex-start; margin: 1.1rem 0 .3rem; line-height: 1.5; }
+.checkbox-label input { width: auto; flex: 0 0 auto; margin-top: .15rem; }
+#follow-up-changes { padding-left: 1.2rem; font-size: .8rem; line-height: 1.7; }
+#follow-up-changes li { margin-bottom: .8rem; }
 .claim-top { display: grid; grid-template-columns: 105px 1fr; gap: 1rem; padding: 1rem; }
 .status { align-self: start; padding: .35rem .45rem; text-align: center; color: var(--green); border: 1px solid currentColor; font: 500 .64rem "DM Mono", monospace; text-transform: uppercase; }
 .status.contested { color: var(--amber); }

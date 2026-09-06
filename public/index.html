@@ -28,7 +28,7 @@
       <section class="hero" aria-labelledby="page-title">
         <p class="eyebrow">A source-first research desk for screen production</p>
         <h1 id="page-title">Know what the scene can honestly say.</h1>
-        <p class="intro">Turn a documentary, scripted or editorial brief into an auditable claim ledger. Gemini plans and synthesizes; Parallel retrieves the live evidence; deterministic checks keep every citation on the page.</p>
+        <p class="intro">Bring a production brief or draft narration. Trace each assessed claim to retrieved evidence, see where wording needs review, and take the source trail into your edit. Gemini assesses; Parallel retrieves; code checks source IDs and quotations.</p>
         <div class="method" aria-label="Four-stage workflow">
           <span><b>01</b> Plan</span><i aria-hidden="true"></i>
           <span><b>02</b> Search</span><i aria-hidden="true"></i>
@@ -46,6 +46,14 @@
             </div>
             <button class="text-button" id="load-example" type="button">Load example</button>
           </div>
+
+          <label>
+            Research mode
+            <select name="mode" id="research-mode">
+              <option value="script">Review script lines</option>
+              <option value="brief">Research a brief</option>
+            </select>
+          </label>
 
           <label>
             Production title
@@ -80,11 +88,18 @@
           </label>
 
           <div id="form-error" class="form-error" role="alert" hidden></div>
+          <label id="script-field">
+            Draft narration
+            <textarea name="script" maxlength="6000" placeholder="Put each narration line on a separate line. We preserve your original wording."></textarea>
+            <span class="field-note">1–20 non-empty lines · maximum 6,000 characters</span>
+          </label>
           <button class="primary-button" type="submit">
             <span>Build evidence ledger</span>
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
           </button>
-          <p class="privacy-note">Your brief is sent to Google Cloud and Parallel Search to complete this run.</p>
+          <label class="checkbox-label"><input type="checkbox" name="followUp" /> Try one follow-up round for unresolved claims</label>
+          <p class="privacy-note">Optional: up to two extra Parallel searches and one Gemini reassessment. Adds time and usage charges; it may leave the claim unresolved.</p>
+          <p class="privacy-note">Your brief and narration are sent to Google Cloud; derived research queries go to Parallel Search. Do not include confidential material.</p>
         </form>
 
         <section class="result-panel" aria-live="polite" aria-busy="false">
@@ -103,6 +118,9 @@
               <li>Searching with Parallel</li>
               <li>Synthesizing with Gemini</li>
               <li>Auditing every citation</li>
+              <li class="follow-up-step" hidden>Follow-up search (optional)</li>
+              <li class="follow-up-step" hidden>Reassessing unresolved claims</li>
+              <li class="follow-up-step" hidden>Checking follow-up citations</li>
             </ol>
           </div>
 
@@ -115,7 +133,23 @@
               <div id="audit-badge" class="audit-badge"></div>
             </header>
             <p id="audit-scope" class="field-note"></p>
+            <div class="export-actions" aria-label="Download this completed run">
+              <button type="button" id="download-text" class="text-button">Download evidence pack (.txt)</button>
+              <button type="button" id="download-json" class="text-button">Full run (.json)</button>
+            </div>
+            <p class="privacy-note">Downloads include your original input and retrieved excerpts. Review before sharing. Runs are not saved between page visits.</p>
             <p id="result-summary" class="result-summary"></p>
+
+            <section id="script-review" aria-labelledby="script-heading" hidden>
+              <div class="section-heading"><h3 id="script-heading">Script review desk</h3><span id="line-count"></span></div>
+              <p class="review-note">Original wording stays intact. Statuses and proposed clauses are model assessments, not publication clearance. Review every assertion, including any the model missed.</p>
+              <div id="script-lines" class="claims"></div>
+            </section>
+            <section id="follow-up-result" hidden aria-labelledby="follow-up-heading">
+              <div class="section-heading"><h3 id="follow-up-heading">What changed after follow-up?</h3></div>
+              <p id="follow-up-note" class="review-note"></p>
+              <ul id="follow-up-changes"></ul>
+            </section>
 
             <section aria-labelledby="claims-heading">
               <div class="section-heading">

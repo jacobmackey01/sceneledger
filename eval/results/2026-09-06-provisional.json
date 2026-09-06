@@ -1,0 +1,1492 @@
+{
+  "dataset": {
+    "version": "2026-09-06.1",
+    "retrievedAt": "2026-09-06",
+    "author": "Codex",
+    "status": "provisional; independent human review pending",
+    "selection": "24 hand-selected narration probes in four correlated NASA excerpt bundles; not a random or representative sample"
+  },
+  "sourceBundleSha256": "f4921fc3ce7ed1be03e211fd6342fe0ab05a1a7d681bc84413ae688c922ac235",
+  "commit": "f4807e43836ffb7349956a583be43afe04a2b50a",
+  "workingTreeDirty": true,
+  "startedAt": "2026-09-06T18:09:05.070Z",
+  "model": "gemini-3.8-flash",
+  "labelBasis": "PROVISIONAL — no human accuracy claim",
+  "groups": [
+    {
+      "group": "mars",
+      "runtimeMs": 6311.3582,
+      "raw": {
+        "headline": "Verification Assessment of Mars Moons Narration Script",
+        "summary": "Based solely on NASA documentation, Mars possesses two small moons named Phobos and Deimos, which may be captured asteroids. Claims asserting Mars has three moons, no moons, that the moons are definitively captured asteroids, or that Phobos will collide with Mars next year are unverified or directly contradicted by the source text.",
+        "claims": [
+          {
+            "claim": "Mars has two small moons.",
+            "status": "supported",
+            "confidence": "high",
+            "evidence": [
+              {
+                "sourceId": "s1",
+                "excerpt": "Mars has two small moons, Phobos and Deimos, that may be captured asteroids."
+              }
+            ],
+            "productionUse": "Clear for voiceover recording and visual graphic display.",
+            "lineId": "l1",
+            "rationale": "The source explicitly states that Mars has two small moons.",
+            "suggestedWording": "Mars has two small moons."
+          },
+          {
+            "claim": "The moons of Mars are named Phobos and Deimos.",
+            "status": "supported",
+            "confidence": "high",
+            "evidence": [
+              {
+                "sourceId": "s1",
+                "excerpt": "Mars has two small moons, Phobos and Deimos, that may be captured asteroids."
+              }
+            ],
+            "productionUse": "Clear for narration and on-screen identification graphics.",
+            "lineId": "l2",
+            "rationale": "The text directly names the two small moons as Phobos and Deimos.",
+            "suggestedWording": "The moons of Mars are named Phobos and Deimos."
+          },
+          {
+            "claim": "Mars has three small moons.",
+            "status": "unverified",
+            "confidence": "high",
+            "evidence": [],
+            "productionUse": "Cut or revise line. The source specifies two moons, not three.",
+            "lineId": "l3",
+            "rationale": "The provided evidence states Mars has two small moons, offering no support for three moons.",
+            "suggestedWording": null
+          },
+          {
+            "claim": "Mars has no moons.",
+            "status": "unverified",
+            "confidence": "high",
+            "evidence": [],
+            "productionUse": "Remove line from script as it contradicts the confirmed presence of two moons.",
+            "lineId": "l4",
+            "rationale": "The evidence explicitly notes the presence of two moons, leaving the claim that Mars has no moons unsupported.",
+            "suggestedWording": null
+          },
+          {
+            "claim": "Both Martian moons are definitely captured asteroids.",
+            "status": "unverified",
+            "confidence": "high",
+            "evidence": [],
+            "productionUse": "Adjust wording to reflect hypothesis/possibility rather than certainty.",
+            "lineId": "l5",
+            "rationale": "The source states that the moons 'may be captured asteroids', which does not establish definitive capture.",
+            "suggestedWording": null
+          },
+          {
+            "claim": "Phobos will collide with Mars next year.",
+            "status": "unverified",
+            "confidence": "high",
+            "evidence": [],
+            "productionUse": "Do not include in production without credible supporting evidence.",
+            "lineId": "l6",
+            "rationale": "The supplied excerpt mentions nothing regarding Phobos's future trajectory, orbital decay, or any upcoming collision.",
+            "suggestedWording": null
+          }
+        ],
+        "risks": [
+          "Retaining lines 3, 4, 5, or 6 introduces factual errors or ungrounded assertions into the documentary.",
+          "Stating the captured asteroid origin as definitive overstates scientific consensus reflected in the provided source."
+        ],
+        "openQuestions": [
+          "What does current planetary science indicate regarding the timeline and likelihood of an eventual Phobos collision with Mars?",
+          "What alternative hypotheses exist for the formation of Phobos and Deimos beyond captured asteroids?"
+        ]
+      },
+      "checked": {
+        "headline": "Verification Assessment of Mars Moons Narration Script",
+        "summary": "Based solely on NASA documentation, Mars possesses two small moons named Phobos and Deimos, which may be captured asteroids. Claims asserting Mars has three moons, no moons, that the moons are definitively captured asteroids, or that Phobos will collide with Mars next year are unverified or directly contradicted by the source text.",
+        "claims": [
+          {
+            "claim": "Mars has two small moons.",
+            "status": "supported",
+            "confidence": "high",
+            "evidence": [
+              {
+                "sourceId": "s1",
+                "excerpt": "Mars has two small moons, Phobos and Deimos, that may be captured asteroids."
+              }
+            ],
+            "productionUse": "Clear for voiceover recording and visual graphic display.",
+            "lineId": "l1",
+            "rationale": "The source explicitly states that Mars has two small moons.",
+            "suggestedWording": "Mars has two small moons.",
+            "citationIssues": []
+          },
+          {
+            "claim": "The moons of Mars are named Phobos and Deimos.",
+            "status": "supported",
+            "confidence": "high",
+            "evidence": [
+              {
+                "sourceId": "s1",
+                "excerpt": "Mars has two small moons, Phobos and Deimos, that may be captured asteroids."
+              }
+            ],
+            "productionUse": "Clear for narration and on-screen identification graphics.",
+            "lineId": "l2",
+            "rationale": "The text directly names the two small moons as Phobos and Deimos.",
+            "suggestedWording": "The moons of Mars are named Phobos and Deimos.",
+            "citationIssues": []
+          },
+          {
+            "claim": "Mars has three small moons.",
+            "status": "unverified",
+            "confidence": "low",
+            "evidence": [],
+            "productionUse": "Do not present this claim as established fact. Check the original sources and obtain adequate evidence before using it in narration or a script.",
+            "lineId": "l3",
+            "rationale": "Insufficient matched evidence. The model's original explanation and proposed wording have been withheld for review.",
+            "suggestedWording": null,
+            "citationIssues": []
+          },
+          {
+            "claim": "Mars has no moons.",
+            "status": "unverified",
+            "confidence": "low",
+            "evidence": [],
+            "productionUse": "Do not present this claim as established fact. Check the original sources and obtain adequate evidence before using it in narration or a script.",
+            "lineId": "l4",
+            "rationale": "Insufficient matched evidence. The model's original explanation and proposed wording have been withheld for review.",
+            "suggestedWording": null,
+            "citationIssues": []
+          },
+          {
+            "claim": "Both Martian moons are definitely captured asteroids.",
+            "status": "unverified",
+            "confidence": "low",
+            "evidence": [],
+            "productionUse": "Do not present this claim as established fact. Check the original sources and obtain adequate evidence before using it in narration or a script.",
+            "lineId": "l5",
+            "rationale": "Insufficient matched evidence. The model's original explanation and proposed wording have been withheld for review.",
+            "suggestedWording": null,
+            "citationIssues": []
+          },
+          {
+            "claim": "Phobos will collide with Mars next year.",
+            "status": "unverified",
+            "confidence": "low",
+            "evidence": [],
+            "productionUse": "Do not present this claim as established fact. Check the original sources and obtain adequate evidence before using it in narration or a script.",
+            "lineId": "l6",
+            "rationale": "Insufficient matched evidence. The model's original explanation and proposed wording have been withheld for review.",
+            "suggestedWording": null,
+            "citationIssues": []
+          }
+        ],
+        "risks": [
+          "Retaining lines 3, 4, 5, or 6 introduces factual errors or ungrounded assertions into the documentary.",
+          "Stating the captured asteroid origin as definitive overstates scientific consensus reflected in the provided source."
+        ],
+        "openQuestions": [
+          "What does current planetary science indicate regarding the timeline and likelihood of an eventual Phobos collision with Mars?",
+          "What alternative hypotheses exist for the formation of Phobos and Deimos beyond captured asteroids?"
+        ],
+        "audit": {
+          "sourceCount": 1,
+          "claimCount": 6,
+          "removedCitations": 0,
+          "unknownSources": 0,
+          "unmatchedExcerpts": 0,
+          "downgradedClaims": 0,
+          "passed": true,
+          "scope": "Source IDs and quoted text checked against retrieved excerpts. This does not verify claim meaning, source accuracy or publication clearance."
+        }
+      },
+      "withoutChecks": {
+        "labelBasis": "provisional assistant labels",
+        "falseAcceptance": {
+          "numerator": 0,
+          "denominator": 4,
+          "rate": 0
+        },
+        "falseRejection": {
+          "numerator": 0,
+          "denominator": 2,
+          "rate": 0
+        },
+        "usefulCoverage": {
+          "numerator": 2,
+          "denominator": 6,
+          "rate": 0.3333333333333333
+        },
+        "outputCoverage": {
+          "numerator": 6,
+          "denominator": 6,
+          "rate": 1
+        },
+        "rows": [
+          {
+            "id": "mars-1",
+            "label": "supported",
+            "returnedClaims": 1,
+            "statuses": [
+              "supported"
+            ],
+            "accepted": true,
+            "error": null
+          },
+          {
+            "id": "mars-2",
+            "label": "supported",
+            "returnedClaims": 1,
+            "statuses": [
+              "supported"
+            ],
+            "accepted": true,
+            "error": null
+          },
+          {
+            "id": "mars-3",
+            "label": "contradicted",
+            "returnedClaims": 1,
+            "statuses": [
+              "unverified"
+            ],
+            "accepted": false,
+            "error": null
+          },
+          {
+            "id": "mars-4",
+            "label": "contradicted",
+            "returnedClaims": 1,
+            "statuses": [
+              "unverified"
+            ],
+            "accepted": false,
+            "error": null
+          },
+          {
+            "id": "mars-5",
+            "label": "insufficient",
+            "returnedClaims": 1,
+            "statuses": [
+              "unverified"
+            ],
+            "accepted": false,
+            "error": null
+          },
+          {
+            "id": "mars-6",
+            "label": "insufficient",
+            "returnedClaims": 1,
+            "statuses": [
+              "unverified"
+            ],
+            "accepted": false,
+            "error": null
+          }
+        ]
+      },
+      "withChecks": {
+        "labelBasis": "provisional assistant labels",
+        "falseAcceptance": {
+          "numerator": 0,
+          "denominator": 4,
+          "rate": 0
+        },
+        "falseRejection": {
+          "numerator": 0,
+          "denominator": 2,
+          "rate": 0
+        },
+        "usefulCoverage": {
+          "numerator": 2,
+          "denominator": 6,
+          "rate": 0.3333333333333333
+        },
+        "outputCoverage": {
+          "numerator": 6,
+          "denominator": 6,
+          "rate": 1
+        },
+        "rows": [
+          {
+            "id": "mars-1",
+            "label": "supported",
+            "returnedClaims": 1,
+            "statuses": [
+              "supported"
+            ],
+            "accepted": true,
+            "error": null
+          },
+          {
+            "id": "mars-2",
+            "label": "supported",
+            "returnedClaims": 1,
+            "statuses": [
+              "supported"
+            ],
+            "accepted": true,
+            "error": null
+          },
+          {
+            "id": "mars-3",
+            "label": "contradicted",
+            "returnedClaims": 1,
+            "statuses": [
+              "unverified"
+            ],
+            "accepted": false,
+            "error": null
+          },
+          {
+            "id": "mars-4",
+            "label": "contradicted",
+            "returnedClaims": 1,
+            "statuses": [
+              "unverified"
+            ],
+            "accepted": false,
+            "error": null
+          },
+          {
+            "id": "mars-5",
+            "label": "insufficient",
+            "returnedClaims": 1,
+            "statuses": [
+              "unverified"
+            ],
+            "accepted": false,
+            "error": null
+          },
+          {
+            "id": "mars-6",
+            "label": "insufficient",
+            "returnedClaims": 1,
+            "statuses": [
+              "unverified"
+            ],
+            "accepted": false,
+            "error": null
+          }
+        ]
+      }
+    },
+    {
+      "group": "earth",
+      "runtimeMs": 7795.311099999999,
+      "raw": {
+        "headline": "Verification of Earth Rotation and Orbit Narration Lines",
+        "summary": "Based solely on NASA Earth Facts, Earth completes one rotation every 23.9 hours and takes 365.25 days to complete one trip around the Sun. Lines transposing these values or making assertions regarding Mars or long-term permanence are directly contradicted or unverified by the provided text.",
+        "claims": [
+          {
+            "claim": "Earth completes a rotation in approximately 23.9 hours.",
+            "status": "supported",
+            "confidence": "high",
+            "evidence": [
+              {
+                "sourceId": "s1",
+                "excerpt": "As Earth orbits the Sun, it completes one rotation every 23.9 hours."
+              }
+            ],
+            "productionUse": "Clear for voiceover narration as written.",
+            "lineId": "l1",
+            "rationale": "The source explicitly states that Earth completes one rotation every 23.9 hours.",
+            "suggestedWording": "Earth completes a rotation in approximately 23.9 hours."
+          },
+          {
+            "claim": "Earth takes about 365.25 days to orbit the Sun.",
+            "status": "supported",
+            "confidence": "high",
+            "evidence": [
+              {
+                "sourceId": "s1",
+                "excerpt": "It takes 365.25 days to complete one trip around the Sun."
+              }
+            ],
+            "productionUse": "Clear for voiceover narration as written.",
+            "lineId": "l2",
+            "rationale": "The source explicitly states that completing one trip around the Sun takes 365.25 days.",
+            "suggestedWording": "Earth takes about 365.25 days to orbit the Sun."
+          },
+          {
+            "claim": "Earth completes a rotation every 365.25 days.",
+            "status": "contested",
+            "confidence": "high",
+            "evidence": [
+              {
+                "sourceId": "s1",
+                "excerpt": "As Earth orbits the Sun, it completes one rotation every 23.9 hours. It takes 365.25 days to complete one trip around the Sun."
+              }
+            ],
+            "productionUse": "Revise line to avoid stating that rotation takes 365.25 days; 365.25 days is the orbital period, whereas rotation takes 23.9 hours.",
+            "lineId": "l3",
+            "rationale": "The source text directly contradicts this by stating Earth completes one rotation every 23.9 hours, whereas 365.25 days is the time required to complete one trip around the Sun.",
+            "suggestedWording": "While the script states Earth completes a rotation every 365.25 days, source evidence shows Earth completes a rotation every 23.9 hours and takes 365.25 days to orbit the Sun."
+          },
+          {
+            "claim": "Earth takes 23.9 hours to orbit the Sun.",
+            "status": "contested",
+            "confidence": "high",
+            "evidence": [
+              {
+                "sourceId": "s1",
+                "excerpt": "As Earth orbits the Sun, it completes one rotation every 23.9 hours. It takes 365.25 days to complete one trip around the Sun."
+              }
+            ],
+            "productionUse": "Revise line to correct the orbital period to 365.25 days rather than 23.9 hours.",
+            "lineId": "l4",
+            "rationale": "The source directly indicates that orbiting the Sun takes 365.25 days, while 23.9 hours refers to Earth's rotation period.",
+            "suggestedWording": "While the script states Earth takes 23.9 hours to orbit the Sun, source evidence shows Earth takes 365.25 days to complete one trip around the Sun."
+          },
+          {
+            "claim": "Earth has exactly the same rotation period as Mars.",
+            "status": "unverified",
+            "confidence": "low",
+            "evidence": [],
+            "productionUse": "Cut or verify with additional external sources before recording; no data about Mars is available in the current source.",
+            "lineId": "l5",
+            "rationale": "The provided excerpt mentions only Earth and contains no information regarding Mars or its rotation period.",
+            "suggestedWording": null
+          },
+          {
+            "claim": "Earth's rotation period will remain unchanged forever.",
+            "status": "unverified",
+            "confidence": "low",
+            "evidence": [],
+            "productionUse": "Cut or withhold clearance pending scientific sourcing on rotational stability over time.",
+            "lineId": "l6",
+            "rationale": "The source notes the current rotation rate is 23.9 hours but does not state or imply whether it will remain unchanged indefinitely.",
+            "suggestedWording": null
+          }
+        ],
+        "risks": [
+          "Retaining lines 3 and 4 introduces factual inaccuracies that directly conflict with the provided reference data.",
+          "Retaining lines 5 and 6 introduces unverified assertions that lack evidential backing."
+        ],
+        "openQuestions": [
+          "What is the rotation period of Mars relative to Earth?",
+          "Does Earth's rotation rate vary or change over geologic time?"
+        ]
+      },
+      "checked": {
+        "headline": "Verification of Earth Rotation and Orbit Narration Lines",
+        "summary": "Based solely on NASA Earth Facts, Earth completes one rotation every 23.9 hours and takes 365.25 days to complete one trip around the Sun. Lines transposing these values or making assertions regarding Mars or long-term permanence are directly contradicted or unverified by the provided text.",
+        "claims": [
+          {
+            "claim": "Earth completes a rotation in approximately 23.9 hours.",
+            "status": "supported",
+            "confidence": "high",
+            "evidence": [
+              {
+                "sourceId": "s1",
+                "excerpt": "As Earth orbits the Sun, it completes one rotation every 23.9 hours."
+              }
+            ],
+            "productionUse": "Clear for voiceover narration as written.",
+            "lineId": "l1",
+            "rationale": "The source explicitly states that Earth completes one rotation every 23.9 hours.",
+            "suggestedWording": "Earth completes a rotation in approximately 23.9 hours.",
+            "citationIssues": []
+          },
+          {
+            "claim": "Earth takes about 365.25 days to orbit the Sun.",
+            "status": "supported",
+            "confidence": "high",
+            "evidence": [
+              {
+                "sourceId": "s1",
+                "excerpt": "It takes 365.25 days to complete one trip around the Sun."
+              }
+            ],
+            "productionUse": "Clear for voiceover narration as written.",
+            "lineId": "l2",
+            "rationale": "The source explicitly states that completing one trip around the Sun takes 365.25 days.",
+            "suggestedWording": "Earth takes about 365.25 days to orbit the Sun.",
+            "citationIssues": []
+          },
+          {
+            "claim": "Earth completes a rotation every 365.25 days.",
+            "status": "contested",
+            "confidence": "high",
+            "evidence": [
+              {
+                "sourceId": "s1",
+                "excerpt": "As Earth orbits the Sun, it completes one rotation every 23.9 hours. It takes 365.25 days to complete one trip around the Sun."
+              }
+            ],
+            "productionUse": "Revise line to avoid stating that rotation takes 365.25 days; 365.25 days is the orbital period, whereas rotation takes 23.9 hours.",
+            "lineId": "l3",
+            "rationale": "The source text directly contradicts this by stating Earth completes one rotation every 23.9 hours, whereas 365.25 days is the time required to complete one trip around the Sun.",
+            "suggestedWording": "While the script states Earth completes a rotation every 365.25 days, source evidence shows Earth completes a rotation every 23.9 hours and takes 365.25 days to orbit the Sun.",
+            "citationIssues": []
+          },
+          {
+            "claim": "Earth takes 23.9 hours to orbit the Sun.",
+            "status": "contested",
+            "confidence": "high",
+            "evidence": [
+              {
+                "sourceId": "s1",
+                "excerpt": "As Earth orbits the Sun, it completes one rotation every 23.9 hours. It takes 365.25 days to complete one trip around the Sun."
+              }
+            ],
+            "productionUse": "Revise line to correct the orbital period to 365.25 days rather than 23.9 hours.",
+            "lineId": "l4",
+            "rationale": "The source directly indicates that orbiting the Sun takes 365.25 days, while 23.9 hours refers to Earth's rotation period.",
+            "suggestedWording": "While the script states Earth takes 23.9 hours to orbit the Sun, source evidence shows Earth takes 365.25 days to complete one trip around the Sun.",
+            "citationIssues": []
+          },
+          {
+            "claim": "Earth has exactly the same rotation period as Mars.",
+            "status": "unverified",
+            "confidence": "low",
+            "evidence": [],
+            "productionUse": "Do not present this claim as established fact. Check the original sources and obtain adequate evidence before using it in narration or a script.",
+            "lineId": "l5",
+            "rationale": "Insufficient matched evidence. The model's original explanation and proposed wording have been withheld for review.",
+            "suggestedWording": null,
+            "citationIssues": []
+          },
+          {
+            "claim": "Earth's rotation period will remain unchanged forever.",
+            "status": "unverified",
+            "confidence": "low",
+            "evidence": [],
+            "productionUse": "Do not present this claim as established fact. Check the original sources and obtain adequate evidence before using it in narration or a script.",
+            "lineId": "l6",
+            "rationale": "Insufficient matched evidence. The model's original explanation and proposed wording have been withheld for review.",
+            "suggestedWording": null,
+            "citationIssues": []
+          }
+        ],
+        "risks": [
+          "Retaining lines 3 and 4 introduces factual inaccuracies that directly conflict with the provided reference data.",
+          "Retaining lines 5 and 6 introduces unverified assertions that lack evidential backing."
+        ],
+        "openQuestions": [
+          "What is the rotation period of Mars relative to Earth?",
+          "Does Earth's rotation rate vary or change over geologic time?"
+        ],
+        "audit": {
+          "sourceCount": 1,
+          "claimCount": 6,
+          "removedCitations": 0,
+          "unknownSources": 0,
+          "unmatchedExcerpts": 0,
+          "downgradedClaims": 0,
+          "passed": true,
+          "scope": "Source IDs and quoted text checked against retrieved excerpts. This does not verify claim meaning, source accuracy or publication clearance."
+        }
+      },
+      "withoutChecks": {
+        "labelBasis": "provisional assistant labels",
+        "falseAcceptance": {
+          "numerator": 0,
+          "denominator": 4,
+          "rate": 0
+        },
+        "falseRejection": {
+          "numerator": 0,
+          "denominator": 2,
+          "rate": 0
+        },
+        "usefulCoverage": {
+          "numerator": 2,
+          "denominator": 6,
+          "rate": 0.3333333333333333
+        },
+        "outputCoverage": {
+          "numerator": 6,
+          "denominator": 6,
+          "rate": 1
+        },
+        "rows": [
+          {
+            "id": "earth-1",
+            "label": "supported",
+            "returnedClaims": 1,
+            "statuses": [
+              "supported"
+            ],
+            "accepted": true,
+            "error": null
+          },
+          {
+            "id": "earth-2",
+            "label": "supported",
+            "returnedClaims": 1,
+            "statuses": [
+              "supported"
+            ],
+            "accepted": true,
+            "error": null
+          },
+          {
+            "id": "earth-3",
+            "label": "contradicted",
+            "returnedClaims": 1,
+            "statuses": [
+              "contested"
+            ],
+            "accepted": false,
+            "error": null
+          },
+          {
+            "id": "earth-4",
+            "label": "contradicted",
+            "returnedClaims": 1,
+            "statuses": [
+              "contested"
+            ],
+            "accepted": false,
+            "error": null
+          },
+          {
+            "id": "earth-5",
+            "label": "insufficient",
+            "returnedClaims": 1,
+            "statuses": [
+              "unverified"
+            ],
+            "accepted": false,
+            "error": null
+          },
+          {
+            "id": "earth-6",
+            "label": "insufficient",
+            "returnedClaims": 1,
+            "statuses": [
+              "unverified"
+            ],
+            "accepted": false,
+            "error": null
+          }
+        ]
+      },
+      "withChecks": {
+        "labelBasis": "provisional assistant labels",
+        "falseAcceptance": {
+          "numerator": 0,
+          "denominator": 4,
+          "rate": 0
+        },
+        "falseRejection": {
+          "numerator": 0,
+          "denominator": 2,
+          "rate": 0
+        },
+        "usefulCoverage": {
+          "numerator": 2,
+          "denominator": 6,
+          "rate": 0.3333333333333333
+        },
+        "outputCoverage": {
+          "numerator": 6,
+          "denominator": 6,
+          "rate": 1
+        },
+        "rows": [
+          {
+            "id": "earth-1",
+            "label": "supported",
+            "returnedClaims": 1,
+            "statuses": [
+              "supported"
+            ],
+            "accepted": true,
+            "error": null
+          },
+          {
+            "id": "earth-2",
+            "label": "supported",
+            "returnedClaims": 1,
+            "statuses": [
+              "supported"
+            ],
+            "accepted": true,
+            "error": null
+          },
+          {
+            "id": "earth-3",
+            "label": "contradicted",
+            "returnedClaims": 1,
+            "statuses": [
+              "contested"
+            ],
+            "accepted": false,
+            "error": null
+          },
+          {
+            "id": "earth-4",
+            "label": "contradicted",
+            "returnedClaims": 1,
+            "statuses": [
+              "contested"
+            ],
+            "accepted": false,
+            "error": null
+          },
+          {
+            "id": "earth-5",
+            "label": "insufficient",
+            "returnedClaims": 1,
+            "statuses": [
+              "unverified"
+            ],
+            "accepted": false,
+            "error": null
+          },
+          {
+            "id": "earth-6",
+            "label": "insufficient",
+            "returnedClaims": 1,
+            "statuses": [
+              "unverified"
+            ],
+            "accepted": false,
+            "error": null
+          }
+        ]
+      }
+    },
+    {
+      "group": "venus",
+      "runtimeMs": 5611.774600000001,
+      "raw": {
+        "headline": "Verification of Narration Lines on Venus Planetary Order and Temperature",
+        "summary": "Based strictly on the provided NASA source, Venus is established as the second planet from the Sun and the hottest planet in the solar system. Claims contradicting these facts or extending temperature records to the entire universe and across all historical time periods are unsupported or unverified.",
+        "claims": [
+          {
+            "claim": "Venus is the second planet from the Sun.",
+            "status": "supported",
+            "confidence": "high",
+            "evidence": [
+              {
+                "sourceId": "s1",
+                "excerpt": "Venus is the second planet from the Sun, and our closest planetary neighbor. It's the hottest planet in our solar system"
+              }
+            ],
+            "productionUse": "Clear for voiceover narration as written.",
+            "lineId": "l1",
+            "rationale": "Source s1 directly states that Venus is the second planet from the Sun.",
+            "suggestedWording": "Venus is second from the Sun."
+          },
+          {
+            "claim": "Venus is the hottest planet in the solar system.",
+            "status": "supported",
+            "confidence": "high",
+            "evidence": [
+              {
+                "sourceId": "s1",
+                "excerpt": "Venus is the second planet from the Sun, and our closest planetary neighbor. It's the hottest planet in our solar system"
+              }
+            ],
+            "productionUse": "Clear for voiceover narration as written.",
+            "lineId": "l2",
+            "rationale": "Source s1 directly states that Venus is the hottest planet in our solar system.",
+            "suggestedWording": "Venus is the hottest planet in the solar system."
+          },
+          {
+            "claim": "Venus is the first planet from the Sun.",
+            "status": "unverified",
+            "confidence": "low",
+            "evidence": [],
+            "productionUse": "Cut or correct this line, as it directly contradicts the verified finding that Venus is the second planet.",
+            "lineId": "l3",
+            "rationale": "No supplied evidence supports Venus being the first planet; the provided excerpt confirms it is the second planet.",
+            "suggestedWording": null
+          },
+          {
+            "claim": "Venus is not the hottest planet in our solar system.",
+            "status": "unverified",
+            "confidence": "low",
+            "evidence": [],
+            "productionUse": "Cut or correct this line, as it contradicts the verified source text.",
+            "lineId": "l4",
+            "rationale": "The supplied evidence directly states Venus is the hottest planet in our solar system, offering no support for this negative assertion.",
+            "suggestedWording": null
+          },
+          {
+            "claim": "Venus has the highest temperature of any planet in the universe.",
+            "status": "unverified",
+            "confidence": "low",
+            "evidence": [],
+            "productionUse": "Revise line to limit the scope of the claim strictly to our solar system.",
+            "lineId": "l5",
+            "rationale": "The source only asserts Venus is the hottest planet in our solar system, not the entire universe.",
+            "suggestedWording": null
+          },
+          {
+            "claim": "Venus has always been the hottest planet.",
+            "status": "unverified",
+            "confidence": "low",
+            "evidence": [],
+            "productionUse": "Do not state that Venus has historically always been the hottest planet without additional paleoclimatological evidence.",
+            "lineId": "l6",
+            "rationale": "The source refers to Venus's present state and provides no historical or temporal data.",
+            "suggestedWording": null
+          }
+        ],
+        "risks": [
+          "Retaining lines l3, l4, l5, or l6 will introduce factual inaccuracies into the script that directly conflict with the provided scientific excerpt or overstate its scope."
+        ],
+        "openQuestions": [
+          "Are there additional sources to substantiate planetary climate history or exoplanetary temperature comparisons?"
+        ]
+      },
+      "checked": {
+        "headline": "Verification of Narration Lines on Venus Planetary Order and Temperature",
+        "summary": "Based strictly on the provided NASA source, Venus is established as the second planet from the Sun and the hottest planet in the solar system. Claims contradicting these facts or extending temperature records to the entire universe and across all historical time periods are unsupported or unverified.",
+        "claims": [
+          {
+            "claim": "Venus is the second planet from the Sun.",
+            "status": "supported",
+            "confidence": "high",
+            "evidence": [
+              {
+                "sourceId": "s1",
+                "excerpt": "Venus is the second planet from the Sun, and our closest planetary neighbor. It's the hottest planet in our solar system"
+              }
+            ],
+            "productionUse": "Clear for voiceover narration as written.",
+            "lineId": "l1",
+            "rationale": "Source s1 directly states that Venus is the second planet from the Sun.",
+            "suggestedWording": "Venus is second from the Sun.",
+            "citationIssues": []
+          },
+          {
+            "claim": "Venus is the hottest planet in the solar system.",
+            "status": "supported",
+            "confidence": "high",
+            "evidence": [
+              {
+                "sourceId": "s1",
+                "excerpt": "Venus is the second planet from the Sun, and our closest planetary neighbor. It's the hottest planet in our solar system"
+              }
+            ],
+            "productionUse": "Clear for voiceover narration as written.",
+            "lineId": "l2",
+            "rationale": "Source s1 directly states that Venus is the hottest planet in our solar system.",
+            "suggestedWording": "Venus is the hottest planet in the solar system.",
+            "citationIssues": []
+          },
+          {
+            "claim": "Venus is the first planet from the Sun.",
+            "status": "unverified",
+            "confidence": "low",
+            "evidence": [],
+            "productionUse": "Do not present this claim as established fact. Check the original sources and obtain adequate evidence before using it in narration or a script.",
+            "lineId": "l3",
+            "rationale": "Insufficient matched evidence. The model's original explanation and proposed wording have been withheld for review.",
+            "suggestedWording": null,
+            "citationIssues": []
+          },
+          {
+            "claim": "Venus is not the hottest planet in our solar system.",
+            "status": "unverified",
+            "confidence": "low",
+            "evidence": [],
+            "productionUse": "Do not present this claim as established fact. Check the original sources and obtain adequate evidence before using it in narration or a script.",
+            "lineId": "l4",
+            "rationale": "Insufficient matched evidence. The model's original explanation and proposed wording have been withheld for review.",
+            "suggestedWording": null,
+            "citationIssues": []
+          },
+          {
+            "claim": "Venus has the highest temperature of any planet in the universe.",
+            "status": "unverified",
+            "confidence": "low",
+            "evidence": [],
+            "productionUse": "Do not present this claim as established fact. Check the original sources and obtain adequate evidence before using it in narration or a script.",
+            "lineId": "l5",
+            "rationale": "Insufficient matched evidence. The model's original explanation and proposed wording have been withheld for review.",
+            "suggestedWording": null,
+            "citationIssues": []
+          },
+          {
+            "claim": "Venus has always been the hottest planet.",
+            "status": "unverified",
+            "confidence": "low",
+            "evidence": [],
+            "productionUse": "Do not present this claim as established fact. Check the original sources and obtain adequate evidence before using it in narration or a script.",
+            "lineId": "l6",
+            "rationale": "Insufficient matched evidence. The model's original explanation and proposed wording have been withheld for review.",
+            "suggestedWording": null,
+            "citationIssues": []
+          }
+        ],
+        "risks": [
+          "Retaining lines l3, l4, l5, or l6 will introduce factual inaccuracies into the script that directly conflict with the provided scientific excerpt or overstate its scope."
+        ],
+        "openQuestions": [
+          "Are there additional sources to substantiate planetary climate history or exoplanetary temperature comparisons?"
+        ],
+        "audit": {
+          "sourceCount": 1,
+          "claimCount": 6,
+          "removedCitations": 0,
+          "unknownSources": 0,
+          "unmatchedExcerpts": 0,
+          "downgradedClaims": 0,
+          "passed": true,
+          "scope": "Source IDs and quoted text checked against retrieved excerpts. This does not verify claim meaning, source accuracy or publication clearance."
+        }
+      },
+      "withoutChecks": {
+        "labelBasis": "provisional assistant labels",
+        "falseAcceptance": {
+          "numerator": 0,
+          "denominator": 4,
+          "rate": 0
+        },
+        "falseRejection": {
+          "numerator": 0,
+          "denominator": 2,
+          "rate": 0
+        },
+        "usefulCoverage": {
+          "numerator": 2,
+          "denominator": 6,
+          "rate": 0.3333333333333333
+        },
+        "outputCoverage": {
+          "numerator": 6,
+          "denominator": 6,
+          "rate": 1
+        },
+        "rows": [
+          {
+            "id": "venus-1",
+            "label": "supported",
+            "returnedClaims": 1,
+            "statuses": [
+              "supported"
+            ],
+            "accepted": true,
+            "error": null
+          },
+          {
+            "id": "venus-2",
+            "label": "supported",
+            "returnedClaims": 1,
+            "statuses": [
+              "supported"
+            ],
+            "accepted": true,
+            "error": null
+          },
+          {
+            "id": "venus-3",
+            "label": "contradicted",
+            "returnedClaims": 1,
+            "statuses": [
+              "unverified"
+            ],
+            "accepted": false,
+            "error": null
+          },
+          {
+            "id": "venus-4",
+            "label": "contradicted",
+            "returnedClaims": 1,
+            "statuses": [
+              "unverified"
+            ],
+            "accepted": false,
+            "error": null
+          },
+          {
+            "id": "venus-5",
+            "label": "insufficient",
+            "returnedClaims": 1,
+            "statuses": [
+              "unverified"
+            ],
+            "accepted": false,
+            "error": null
+          },
+          {
+            "id": "venus-6",
+            "label": "insufficient",
+            "returnedClaims": 1,
+            "statuses": [
+              "unverified"
+            ],
+            "accepted": false,
+            "error": null
+          }
+        ]
+      },
+      "withChecks": {
+        "labelBasis": "provisional assistant labels",
+        "falseAcceptance": {
+          "numerator": 0,
+          "denominator": 4,
+          "rate": 0
+        },
+        "falseRejection": {
+          "numerator": 0,
+          "denominator": 2,
+          "rate": 0
+        },
+        "usefulCoverage": {
+          "numerator": 2,
+          "denominator": 6,
+          "rate": 0.3333333333333333
+        },
+        "outputCoverage": {
+          "numerator": 6,
+          "denominator": 6,
+          "rate": 1
+        },
+        "rows": [
+          {
+            "id": "venus-1",
+            "label": "supported",
+            "returnedClaims": 1,
+            "statuses": [
+              "supported"
+            ],
+            "accepted": true,
+            "error": null
+          },
+          {
+            "id": "venus-2",
+            "label": "supported",
+            "returnedClaims": 1,
+            "statuses": [
+              "supported"
+            ],
+            "accepted": true,
+            "error": null
+          },
+          {
+            "id": "venus-3",
+            "label": "contradicted",
+            "returnedClaims": 1,
+            "statuses": [
+              "unverified"
+            ],
+            "accepted": false,
+            "error": null
+          },
+          {
+            "id": "venus-4",
+            "label": "contradicted",
+            "returnedClaims": 1,
+            "statuses": [
+              "unverified"
+            ],
+            "accepted": false,
+            "error": null
+          },
+          {
+            "id": "venus-5",
+            "label": "insufficient",
+            "returnedClaims": 1,
+            "statuses": [
+              "unverified"
+            ],
+            "accepted": false,
+            "error": null
+          },
+          {
+            "id": "venus-6",
+            "label": "insufficient",
+            "returnedClaims": 1,
+            "statuses": [
+              "unverified"
+            ],
+            "accepted": false,
+            "error": null
+          }
+        ]
+      }
+    },
+    {
+      "group": "apollo",
+      "runtimeMs": 5595.249,
+      "raw": {
+        "headline": "Verification of Neil Armstrong Apollo 11 Documentary Script Lines",
+        "summary": "Based solely on the supplied NASA Apollo 11 source excerpt, Neil Armstrong is confirmed to have been the first person to walk on the moon and to have flown on two space missions. Directly contradictory claims stating he never walked on the moon or flew on five space missions are refuted by the text, while claims regarding moonwalk duration and mission crew activities remain unverified.",
+        "claims": [
+          {
+            "claim": "Neil Armstrong was the first person to walk on the Moon.",
+            "status": "supported",
+            "confidence": "high",
+            "evidence": [
+              {
+                "sourceId": "s1",
+                "excerpt": "Neil Armstrong was the first person to walk on the moon."
+              }
+            ],
+            "productionUse": "Clear for narration as written.",
+            "lineId": "l1",
+            "rationale": "The source explicitly states verbatim that Neil Armstrong was the first person to walk on the moon.",
+            "suggestedWording": "Neil Armstrong was the first person to walk on the Moon."
+          },
+          {
+            "claim": "Armstrong flew on two space missions.",
+            "status": "supported",
+            "confidence": "high",
+            "evidence": [
+              {
+                "sourceId": "s1",
+                "excerpt": "He flew on two space missions."
+              }
+            ],
+            "productionUse": "Clear for narration as written.",
+            "lineId": "l2",
+            "rationale": "The source explicitly verifies that Armstrong flew on two space missions.",
+            "suggestedWording": "Armstrong flew on two space missions."
+          },
+          {
+            "claim": "Neil Armstrong never walked on the Moon.",
+            "status": "unverified",
+            "confidence": "high",
+            "evidence": [],
+            "productionUse": "Cut line. It directly contradicts established facts in the primary source.",
+            "lineId": "l3",
+            "rationale": "The supplied source states Armstrong was the first person to walk on the moon; there is no evidence supporting the claim that he never walked on the Moon.",
+            "suggestedWording": null
+          },
+          {
+            "claim": "Armstrong flew on five space missions.",
+            "status": "unverified",
+            "confidence": "high",
+            "evidence": [],
+            "productionUse": "Cut line or correct to two space missions based on source s1.",
+            "lineId": "l4",
+            "rationale": "The supplied source explicitly contradicts this by stating he flew on two space missions. There is no evidence for five missions.",
+            "suggestedWording": null
+          },
+          {
+            "claim": "Armstrong's first Moon walk lasted exactly six hours.",
+            "status": "unverified",
+            "confidence": "high",
+            "evidence": [],
+            "productionUse": "Do not include in narration until duration details are substantiated by verified mission records.",
+            "lineId": "l5",
+            "rationale": "The supplied source text contains no information about the duration of Armstrong's moonwalk.",
+            "suggestedWording": null
+          },
+          {
+            "claim": "Everyone on Armstrong's missions walked on the Moon.",
+            "status": "unverified",
+            "confidence": "high",
+            "evidence": [],
+            "productionUse": "Remove or hold pending documentation regarding the other crew members on Armstrong's flights.",
+            "lineId": "l6",
+            "rationale": "The source text does not mention other crew members or whether they walked on the moon.",
+            "suggestedWording": null
+          }
+        ],
+        "risks": [
+          "Narration contains direct contradictions between lines (e.g., walking on the moon vs. never walking on the moon; two missions vs. five missions).",
+          "Including unverified claims regarding extravehicular duration and crew moonwalk participation risks factual inaccuracy."
+        ],
+        "openQuestions": [
+          "What was the exact duration of Neil Armstrong's moonwalk during Apollo 11?",
+          "Who were the other crew members on Armstrong's two space missions, and did any of them walk on the moon?"
+        ]
+      },
+      "checked": {
+        "headline": "Verification of Neil Armstrong Apollo 11 Documentary Script Lines",
+        "summary": "Based solely on the supplied NASA Apollo 11 source excerpt, Neil Armstrong is confirmed to have been the first person to walk on the moon and to have flown on two space missions. Directly contradictory claims stating he never walked on the moon or flew on five space missions are refuted by the text, while claims regarding moonwalk duration and mission crew activities remain unverified.",
+        "claims": [
+          {
+            "claim": "Neil Armstrong was the first person to walk on the Moon.",
+            "status": "supported",
+            "confidence": "high",
+            "evidence": [
+              {
+                "sourceId": "s1",
+                "excerpt": "Neil Armstrong was the first person to walk on the moon."
+              }
+            ],
+            "productionUse": "Clear for narration as written.",
+            "lineId": "l1",
+            "rationale": "The source explicitly states verbatim that Neil Armstrong was the first person to walk on the moon.",
+            "suggestedWording": "Neil Armstrong was the first person to walk on the Moon.",
+            "citationIssues": []
+          },
+          {
+            "claim": "Armstrong flew on two space missions.",
+            "status": "supported",
+            "confidence": "high",
+            "evidence": [
+              {
+                "sourceId": "s1",
+                "excerpt": "He flew on two space missions."
+              }
+            ],
+            "productionUse": "Clear for narration as written.",
+            "lineId": "l2",
+            "rationale": "The source explicitly verifies that Armstrong flew on two space missions.",
+            "suggestedWording": "Armstrong flew on two space missions.",
+            "citationIssues": []
+          },
+          {
+            "claim": "Neil Armstrong never walked on the Moon.",
+            "status": "unverified",
+            "confidence": "low",
+            "evidence": [],
+            "productionUse": "Do not present this claim as established fact. Check the original sources and obtain adequate evidence before using it in narration or a script.",
+            "lineId": "l3",
+            "rationale": "Insufficient matched evidence. The model's original explanation and proposed wording have been withheld for review.",
+            "suggestedWording": null,
+            "citationIssues": []
+          },
+          {
+            "claim": "Armstrong flew on five space missions.",
+            "status": "unverified",
+            "confidence": "low",
+            "evidence": [],
+            "productionUse": "Do not present this claim as established fact. Check the original sources and obtain adequate evidence before using it in narration or a script.",
+            "lineId": "l4",
+            "rationale": "Insufficient matched evidence. The model's original explanation and proposed wording have been withheld for review.",
+            "suggestedWording": null,
+            "citationIssues": []
+          },
+          {
+            "claim": "Armstrong's first Moon walk lasted exactly six hours.",
+            "status": "unverified",
+            "confidence": "low",
+            "evidence": [],
+            "productionUse": "Do not present this claim as established fact. Check the original sources and obtain adequate evidence before using it in narration or a script.",
+            "lineId": "l5",
+            "rationale": "Insufficient matched evidence. The model's original explanation and proposed wording have been withheld for review.",
+            "suggestedWording": null,
+            "citationIssues": []
+          },
+          {
+            "claim": "Everyone on Armstrong's missions walked on the Moon.",
+            "status": "unverified",
+            "confidence": "low",
+            "evidence": [],
+            "productionUse": "Do not present this claim as established fact. Check the original sources and obtain adequate evidence before using it in narration or a script.",
+            "lineId": "l6",
+            "rationale": "Insufficient matched evidence. The model's original explanation and proposed wording have been withheld for review.",
+            "suggestedWording": null,
+            "citationIssues": []
+          }
+        ],
+        "risks": [
+          "Narration contains direct contradictions between lines (e.g., walking on the moon vs. never walking on the moon; two missions vs. five missions).",
+          "Including unverified claims regarding extravehicular duration and crew moonwalk participation risks factual inaccuracy."
+        ],
+        "openQuestions": [
+          "What was the exact duration of Neil Armstrong's moonwalk during Apollo 11?",
+          "Who were the other crew members on Armstrong's two space missions, and did any of them walk on the moon?"
+        ],
+        "audit": {
+          "sourceCount": 1,
+          "claimCount": 6,
+          "removedCitations": 0,
+          "unknownSources": 0,
+          "unmatchedExcerpts": 0,
+          "downgradedClaims": 0,
+          "passed": true,
+          "scope": "Source IDs and quoted text checked against retrieved excerpts. This does not verify claim meaning, source accuracy or publication clearance."
+        }
+      },
+      "withoutChecks": {
+        "labelBasis": "provisional assistant labels",
+        "falseAcceptance": {
+          "numerator": 0,
+          "denominator": 4,
+          "rate": 0
+        },
+        "falseRejection": {
+          "numerator": 0,
+          "denominator": 2,
+          "rate": 0
+        },
+        "usefulCoverage": {
+          "numerator": 2,
+          "denominator": 6,
+          "rate": 0.3333333333333333
+        },
+        "outputCoverage": {
+          "numerator": 6,
+          "denominator": 6,
+          "rate": 1
+        },
+        "rows": [
+          {
+            "id": "apollo-1",
+            "label": "supported",
+            "returnedClaims": 1,
+            "statuses": [
+              "supported"
+            ],
+            "accepted": true,
+            "error": null
+          },
+          {
+            "id": "apollo-2",
+            "label": "supported",
+            "returnedClaims": 1,
+            "statuses": [
+              "supported"
+            ],
+            "accepted": true,
+            "error": null
+          },
+          {
+            "id": "apollo-3",
+            "label": "contradicted",
+            "returnedClaims": 1,
+            "statuses": [
+              "unverified"
+            ],
+            "accepted": false,
+            "error": null
+          },
+          {
+            "id": "apollo-4",
+            "label": "contradicted",
+            "returnedClaims": 1,
+            "statuses": [
+              "unverified"
+            ],
+            "accepted": false,
+            "error": null
+          },
+          {
+            "id": "apollo-5",
+            "label": "insufficient",
+            "returnedClaims": 1,
+            "statuses": [
+              "unverified"
+            ],
+            "accepted": false,
+            "error": null
+          },
+          {
+            "id": "apollo-6",
+            "label": "insufficient",
+            "returnedClaims": 1,
+            "statuses": [
+              "unverified"
+            ],
+            "accepted": false,
+            "error": null
+          }
+        ]
+      },
+      "withChecks": {
+        "labelBasis": "provisional assistant labels",
+        "falseAcceptance": {
+          "numerator": 0,
+          "denominator": 4,
+          "rate": 0
+        },
+        "falseRejection": {
+          "numerator": 0,
+          "denominator": 2,
+          "rate": 0
+        },
+        "usefulCoverage": {
+          "numerator": 2,
+          "denominator": 6,
+          "rate": 0.3333333333333333
+        },
+        "outputCoverage": {
+          "numerator": 6,
+          "denominator": 6,
+          "rate": 1
+        },
+        "rows": [
+          {
+            "id": "apollo-1",
+            "label": "supported",
+            "returnedClaims": 1,
+            "statuses": [
+              "supported"
+            ],
+            "accepted": true,
+            "error": null
+          },
+          {
+            "id": "apollo-2",
+            "label": "supported",
+            "returnedClaims": 1,
+            "statuses": [
+              "supported"
+            ],
+            "accepted": true,
+            "error": null
+          },
+          {
+            "id": "apollo-3",
+            "label": "contradicted",
+            "returnedClaims": 1,
+            "statuses": [
+              "unverified"
+            ],
+            "accepted": false,
+            "error": null
+          },
+          {
+            "id": "apollo-4",
+            "label": "contradicted",
+            "returnedClaims": 1,
+            "statuses": [
+              "unverified"
+            ],
+            "accepted": false,
+            "error": null
+          },
+          {
+            "id": "apollo-5",
+            "label": "insufficient",
+            "returnedClaims": 1,
+            "statuses": [
+              "unverified"
+            ],
+            "accepted": false,
+            "error": null
+          },
+          {
+            "id": "apollo-6",
+            "label": "insufficient",
+            "returnedClaims": 1,
+            "statuses": [
+              "unverified"
+            ],
+            "accepted": false,
+            "error": null
+          }
+        ]
+      }
+    }
+  ],
+  "searchCalls": 0,
+  "completedAt": "2026-09-06T18:09:30.424Z",
+  "usage": [
+    {
+      "inputTokens": 823,
+      "outputTokens": 940,
+      "totalTokens": 1763
+    },
+    {
+      "inputTokens": 902,
+      "outputTokens": 1267,
+      "totalTokens": 2169
+    },
+    {
+      "inputTokens": 856,
+      "outputTokens": 946,
+      "totalTokens": 1802
+    },
+    {
+      "inputTokens": 857,
+      "outputTokens": 970,
+      "totalTokens": 1827
+    }
+  ],
+  "billedCost": null,
+  "costNote": "Token metadata is provider-reported, not an invoice; no monetary estimate inferred.",
+  "status": "COMPLETE"
+}

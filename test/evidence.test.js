@@ -3,6 +3,16 @@ import assert from "node:assert/strict";
 import { enforceEvidence, normalizeSources } from "../src/evidence.js";
 import { sources, synthesis } from "./fixtures.js";
 
+test("even matched supported claims cannot carry model-authored publication clearance", () => {
+  for (const status of ["supported", "contested"]) {
+    const draft = synthesis(undefined, status);
+    draft.claims[0].productionUse = "Clear for voiceover narration as written.";
+    const checked = enforceEvidence(draft, sources);
+    assert.doesNotMatch(checked.claims[0].productionUse, /Clear for voiceover/);
+    assert.match(checked.claims[0].productionUse, /clearance|requires approval/);
+  }
+});
+
 test("normalizeSources deduplicates URLs and removes post-cutoff evidence", () => {
   const sources = normalizeSources([
     [

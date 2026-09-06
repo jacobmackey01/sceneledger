@@ -11,6 +11,7 @@ function parseJsonResponse(text, schema, stage) {
 }
 
 export function createGeminiService(config) {
+  const usage = [];
   const client = new GoogleGenAI({
     vertexai: true,
     project: config.GOOGLE_CLOUD_PROJECT,
@@ -27,12 +28,18 @@ export function createGeminiService(config) {
         thinkingConfig: { thinkingLevel: "LOW" },
       },
     });
+    usage.push(response.usageMetadata ? {
+      inputTokens: response.usageMetadata.promptTokenCount ?? null,
+      outputTokens: response.usageMetadata.candidatesTokenCount ?? null,
+      totalTokens: response.usageMetadata.totalTokenCount ?? null,
+    } : { inputTokens: null, outputTokens: null, totalTokens: null });
     if (!response.text) throw new Error("Gemini returned an empty response");
     return response.text;
   }
 
   return {
     model: config.GEMINI_MODEL,
+    getUsage: () => structuredClone(usage),
     async plan(request) {
       return parseJsonResponse(await generate(planningPrompt(request)), planSchema, "planning");
     },
