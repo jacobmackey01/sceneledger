@@ -1,5 +1,18 @@
 # Verification record
 
+## Upgrade deployed and checked 7 September 2026 (Europe/London)
+
+- Runtime commit: `be6b4f9a95beef043d7101511b4d370b6654c8d4`, pushed to `main`. GitHub Actions [run 34065697965](https://github.com/jacobmackey01/sceneledger/actions/runs/34065697965) passed. All 36 tests also passed locally before deployment.
+- Cloud Run revision `sceneledger-00005-79z` is ready and serving 100% of traffic in project `peppy-answer-391323`, region `europe-west1`.
+- Service and revision maximum instances remain 1, minimum instances 0, concurrency 2, CPU 1 and memory 512 MiB. Existing service identity, model configuration and Secret Manager reference were preserved. These settings do not impose a fixed total bill.
+- One live browser run used the included three-line independent-cinema narration with follow-up enabled. The example's UTC cutoff was 2026-09-06. It was already 7 September locally in London.
+- Cloud Run request log: `2026-09-06T23:02:50.997570Z`, HTTP 200, latency 22.577129262 seconds. Export completion timestamp: `2026-09-06T23:03:13.573Z`, application elapsed time 22,547 ms.
+- The live result assessed 3/3 original lines, retrieved 28 sources, and completed one follow-up round with two extra searches and one reassessment. Total API method calls: 3 Gemini and 6 Parallel. All three claims remained unverified. One mismatched quotation was removed; the affected rationale and proposed wording were withheld. The audit badge correctly reported review needed.
+- Both text and JSON downloads were saved and read back. The JSON contained the original request, mapped lines, follow-up trail, source excerpts, cumulative audit and provider usage. No warning/error browser console entries were observed. The configuration-only health check also passed, but was not treated as proof of live provider operation.
+- Live script-review screenshot saved locally at `work/sceneledger-live-script-20260907.jpg`. No synthetic QA fixtures were used for this run.
+
+Remaining work: independent human review of evaluation labels and a refreshed recording guide for the new interface, followed by the actual demo video and final Devpost steps. No final Devpost submission was performed during this release.
+
 ## Local upgrade checked 6 September 2026
 
 The script-review, export and opt-in follow-up upgrade is not yet deployed. The 5 September deployment record below describes the previous release, not these changes.

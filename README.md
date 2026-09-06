@@ -6,7 +6,7 @@ Built for the **Parallel track** of Google Cloud's Agentic Cinema hackathon.
 
 **Live application:** https://sceneledger-1021005568486.europe-west1.run.app
 
-Upgrade status, 6 September 2026: the script-review, export and optional follow-up changes below are verified locally but have not yet replaced the deployed version. The existing recording guide depicts that previous release.
+Upgrade deployed, 7 September 2026 (Europe/London): script review, exports and optional bounded follow-up are live. Runtime commit `be6b4f9` is deployed as Cloud Run revision `sceneledger-00005-79z`. A live narration run and both downloads were verified; see [the release record](docs/VERIFICATION.md). The existing recording guide still depicts the previous interface and needs refreshed screenshots before recording.
 
 ## Product loop
 
